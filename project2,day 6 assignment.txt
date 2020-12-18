@@ -1,0 +1,15 @@
+#send a email through python code
+
+import emails
+html_text ='''<p>hi ,</p>
+<p>&nbsp; &nbsp; how are you , google starts recruitment freshers, your resume is matching our needs send your resume and if you have any doubts contact our HR</p>
+'''
+message = emails.html(html =html_text,
+                      subject="immediate recruitment in google",
+                      mail_from=('sai HR department ', 'sai@gmail.com'))
+mail_via_python = message.send(to='recivermail@gmail.com',
+	smtp={'host': 'smtp.gmail.com','timeout': 5,'port': 587,
+	'user':'youmail@gmail.com',
+	'password':'password',
+	'tls':True})
+print(mail_via_python.status_code)
