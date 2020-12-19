@@ -1,0 +1,18 @@
+#youtube video downloader
+
+from pytube import YouTube
+from tkinter import *
+root=Tk()
+root.geometry('300x300')
+root.title('youtube video download')
+def youtube():
+    a =var.get()
+    ytvideo = Youtube(a).streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+    ytvideo = download(r"C:\Users\sai\Videos")
+    print('entry box',a)
+Label_1=Label(root,text="Paste The Youtube Link Here",fg='red', font=("bold",20))
+Label_1.place(x=30,y=20)
+mylink=StringVar()
+paste=Entry(root, width=60, textvariable=mylink)
+paste.place(x=140, y=80)
+b1=Button(root,text="Download Video", width=20, bg='green',fg="white", command=youtube).place(x=220, y=110)
