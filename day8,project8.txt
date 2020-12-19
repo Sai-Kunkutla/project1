@@ -1,0 +1,23 @@
+
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+cred = credentials.Certificate("python-project-96641-firebase-adminsdk.json")
+firebase_admin.initialize_app(cred)
+db = firestore.client()
+doc_ref = db.collection(u'users').document()
+doc_ref.set({
+  u'first':u'sai',
+  u'last':u'kunkutla',
+  u'born':u'22'
+})
+def enterdata():
+  doc_ref = db.collection(u'users').document()
+  name = input('enter name')
+  lastname = input('enter lastname')
+  age = input('enter age')
+  dit = {}
+  dit["firstname"] =name
+  dit['lastname'] =lastname
+  dit['age'] =age
+  doc_ref.set(dit)
